@@ -1,0 +1,37 @@
+{
+  "name": "my_departures",
+  "version": "1.0.0",
+  "description": "A small application to get public transport departures near a set location and display it on a local screen",
+  "main": "app.js",
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "internet-available": "^1.0.0",
+    "polly-js": "^1.6.5"
+  },
+  "config-overrides-path": "config-overrides.js",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "test": "jest test",
+    "build": "babel src/app.js -d dist",
+    "start": "npm run build && node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OddKMS/my_departures.git"
+  },
+  "author": "Odd Karsten Svartaas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OddKMS/my_departures/issues"
+  },
+  "homepage": "https://github.com/OddKMS/my_departures#readme"
+}
