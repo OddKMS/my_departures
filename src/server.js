@@ -1,12 +1,27 @@
-import http from 'http';
+const Hapi = require('@hapi/hapi');
 
-const departuresServer = function(message) {
-	http.createServer((req, res) => {
-		res.writeHead(200, { 'Content-Type': 'text/plain' });
-		res.end({ message } + '\n');
-	}).listen(1337, '127.0.0.1');
+const init = async () => {
+	const departuresServer = Hapi.server({
+		port: 2020,
+		host: 'localhost',
+		
+	});
 
-	console.log('Server running at http://127.0.0.1:1337/');
+	departuresServer.route({
+		method: 'GET',
+		path: '/',
+		handler: (request, h) => {
+			return 'Hello World';
+		},
+	});
+
+	await departuresServer.start();
+	console.log('Server is running on %s', departuresServer.info.uri);
 };
 
-export default departuresServer;
+process.on('unhandledRejection', (err) => {
+	console.log(err);
+	process.exit(1);
+});
+
+init();
