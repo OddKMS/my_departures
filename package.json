@@ -2,7 +2,7 @@
   "name": "my_departures",
   "version": "1.0.0",
   "description": "A small application to get public transport departures near a set location and display it on a local screen",
-  "main": "src/app.ts",
+  "main": "./src/app.ts",
   "dependencies": {
     "@hapi/hapi": "^21.0.0",
     "@types/hapi": "^18.0.8",

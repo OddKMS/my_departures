@@ -1,11 +1,14 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist",
-        "allowJs": true,
-        "target": "es5",
-        "esModuleInterop": true
-    },
-        "include": [
-        "./src/**/*"
-    ]
+  "compilerOptions": {
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "es5",
+    "esModuleInterop": true
+  },
+  "include": ["./src/**/*"],
+  "references": [
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
 }

@@ -1,26 +1,44 @@
-import { server } from '@hapi/hapi';
+import Boom from '@hapi/boom';
+import Hapi, { Request, ResponseToolkit } from '@hapi/hapi';
+
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 2225;
+
+const departuresServer = Hapi.server({
+  port: PORT,
+  host: HOST,
+  routes: {
+    cors: {
+      origin: ['*'],
+    },
+    validate: {
+      failAction: async (request: Request, h: ResponseToolkit, err: Error) => {
+        throw Boom.badRequest(err.message);
+      },
+    },
+  },
+});
 
 const DeparturesServer = async () => {
-  const departuresServer = server({
-    port: 2020,
-    host: 'localhost',
-  });
-
   departuresServer.route({
     method: 'GET',
     path: '/',
     handler: (request, h) => {
-      return 'Hello World';
+      return 'My Departures Server';
     },
   });
 
-  await departuresServer.start();
-  console.log('Server is running on %s', departuresServer.info.uri);
+  //await departuresServer.register(routes.fooRoute);
 
-  process.on('unhandledRejection', (err) => {
-    console.log(err);
-    process.exit(1);
-  });
+  await departuresServer.start();
+  console.log('Server running on %s', departuresServer.info.uri);
+
+  return departuresServer;
 };
 
-export default DeparturesServer;
+process.on('unhandledRejection', (err) => {
+  console.log(err);
+  process.exit(1);
+});
+
+export default { DeparturesServer };
