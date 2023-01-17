@@ -1,6 +1,6 @@
-const Hapi = require('@hapi/hapi');
+import Hapi from '@hapi/hapi';
 
-const init = async () => {
+const DeparturesServer = async () => {
   const departuresServer = Hapi.server({
     port: 2020,
     host: 'localhost',
@@ -16,11 +16,11 @@ const init = async () => {
 
   await departuresServer.start();
   console.log('Server is running on %s', departuresServer.info.uri);
+
+  process.on('unhandledRejection', (err) => {
+    console.log(err);
+    process.exit(1);
+  });
 };
 
-process.on('unhandledRejection', (err) => {
-  console.log(err);
-  process.exit(1);
-});
-
-init();
+export default DeparturesServer;

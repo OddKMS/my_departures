@@ -1,22 +1,20 @@
-const polly = require('polly-js');
-const departuresServer = require('./server');
-const internetAvailable = require('internet-available');
-const axios = require('axios').default;
+import polly from 'polly-js';
+import internetAvailable from 'internet-available';
+import axios from 'axios';
+
 //Program start
 //First off, we check for an internet connection
-
 internetAvailable({
   timeout: 5000,
 })
   .then(() => {
     polly()
-      .waitAndRetry()
+      .waitAndRetry(2)
       .executeForNode(() => {
         getTimetable();
       });
   })
-  .catch((err) => {
-    //console.log(err);
+  .catch(() => {
     console.log('No internet.');
   });
 
@@ -30,6 +28,7 @@ async function getTimetable() {
 
     const response = await instance.get('/');
     console.log(response.data);
+    process.exit(0);
   } catch (err) {
     console.log(err);
   }
