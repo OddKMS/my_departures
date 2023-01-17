@@ -27,8 +27,9 @@
   },
   "scripts": {
     "test": "jest test",
-    "build": "babel src/app.ts -d dist",
-    "start": "npx nodemon src/app.ts"
+    "build": "todo: write a build script babel src/app.ts -d dist",
+    "start": "npx nodemon --watch client ./src/client/client.ts",
+    "departures-server": "npx nodemon --watch server ./src/server/server.ts"
   },
   "repository": {
     "type": "git",

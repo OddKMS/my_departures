@@ -19,7 +19,7 @@ const departuresServer = Hapi.server({
   },
 });
 
-const DeparturesServer = async () => {
+const Start = async () => {
   departuresServer.route({
     method: 'GET',
     path: '/',
@@ -41,4 +41,4 @@ process.on('unhandledRejection', (err) => {
   process.exit(1);
 });
 
-export default { DeparturesServer };
+Start();
