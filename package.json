@@ -5,11 +5,13 @@
   "main": "app.js",
   "dependencies": {
     "@hapi/hapi": "^19.1.1",
+    "awesome-typescript-loader": "^5.2.1",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "hapi": "^18.1.0",
     "internet-available": "^1.0.0",
     "polly-js": "^1.6.5",
+    "source-map-loader": "^4.0.1",
     "xmlhttprequest": "^1.8.0"
   },
   "config-overrides-path": "config-overrides.js",
