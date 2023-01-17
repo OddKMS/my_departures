@@ -1,7 +1,7 @@
-import Hapi from '@hapi/hapi';
+import { server } from '@hapi/hapi';
 
 const DeparturesServer = async () => {
-  const departuresServer = Hapi.server({
+  const departuresServer = server({
     port: 2020,
     host: 'localhost',
   });

@@ -2,7 +2,7 @@
   "name": "my_departures",
   "version": "1.0.0",
   "description": "A small application to get public transport departures near a set location and display it on a local screen",
-  "main": "app.js",
+  "main": "src/app.ts",
   "dependencies": {
     "@hapi/hapi": "^21.0.0",
     "@types/hapi": "^18.0.8",
@@ -27,8 +27,8 @@
   },
   "scripts": {
     "test": "jest test",
-    "build": "babel src/app.js -d dist",
-    "start": "npx nodemon src/app.js"
+    "build": "babel src/app.ts -d dist",
+    "start": "npx nodemon src/app.ts"
   },
   "repository": {
     "type": "git",
