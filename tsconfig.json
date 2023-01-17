@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "outDir": "./dist",
     "allowJs": true,
     "target": "es5",
@@ -7,6 +8,9 @@
   },
   "include": ["./src/**/*"],
   "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
     {
       "path": "./tsconfig.spec.json"
     }
