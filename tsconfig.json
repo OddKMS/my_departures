@@ -1,0 +1,16 @@
+{
+  "extends": "@tsconfig/node24",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "noEmit": true,
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "paths": {
+      "#types": ["./src/types/index.ts"],
+      "#helpers": ["./src/helpers/index.ts"]
+    }
+  },
+  "include": ["./bin.ts", "./src/**/*", "./tests/**/*", "vitest.config.ts"]
+}
